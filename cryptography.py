@@ -22,16 +22,23 @@ while op != "e" and op != "d" and op != "q":
     op = str(input("Enter e to encrypt, d to decrypt, or q to quit: "))
 
 while op != "q":
+    output = ""
     if op == "e":
         m = str(input("Message: "))
         k = str(input("Key: "))
         i = 0
         while len(m) > len(k):
-            key += key[i]
+            k += k[i]
             i += 1
-            
+    for u in range(0,len(m)):
+        if numbChar[m[u]] + numbChar[k[u]] <= len(associations) - 1:
+            ouput += charNumb[numbChar[m[u]] + numbChar[k[u]]]
+        else:
+            ouput += charNumb[(numbChar[m[u]] + numbChar[k[u]]) - (len(associations) - 1)]
+    
     else:
         print("meh")
+    print(output)
     op = "q"
     """
     op = str(input("Enter e to encrypt, d to decrypt, or q to quit: ")
