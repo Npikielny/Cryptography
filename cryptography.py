@@ -23,13 +23,13 @@ while op != "e" and op != "d" and op != "q":
 
 while op != "q":
     output = ""
-    if op == "e":
-        m = str(input("Message: "))
-        k = str(input("Key: "))
-        i = 0
-        while len(m) > len(k):
+    m = str(input("Message: "))
+    k = str(input("Key: "))
+    i = 0
+    while len(m) > len(k):
             k += k[i]
             i += 1
+    if op == "e":
         for u in range(0,len(m)):
             if charNumb[m[u]] + charNumb[k[u]] <= len(associations):
                 output += numbChar[charNumb[m[u]] + charNumb[k[u]]]
@@ -38,11 +38,15 @@ while op != "q":
         print(output)
     
     else:
-        print("meh")
-    op = "q"
-    """
-    op = str(input("Enter e to encrypt, d to decrypt, or q to quit: ")
+        for u in range(0,len(m)):
+            if charNumb[m[u]] - charNumb[k[u]] >= 0:
+                output += numbChar[charNumb[m[u]] - charNumb[k[u]]]
+            else:
+                output += numbChar[charNumb[m[u]] - charNumb[k[u]] + len(associations)]
+        print(output)
+    op = str(input("Enter e to encrypt, d to decrypt, or q to quit: "))
     while op != "e" and op != "d" and op != "q":
         print("Did not understand command, try again.")
-        op = str(input("Enter e to encrypt, d to decrypt, or q to quit: ")
-    """
+        op = str(input("Enter e to encrypt, d to decrypt, or q to quit: "))
+
+print("Goodbye!")
