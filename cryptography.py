@@ -1,7 +1,7 @@
 """
 cryptography.py
-Author: <your name here>
-Credit: <list sources used, if any>
+Author: Noah Pikielny
+Credit: None
 
 Assignment:
 
@@ -31,10 +31,10 @@ while op != "q":
             k += k[i]
             i += 1
         for u in range(0,len(m)):
-            if charNumb[m[u]] + charNumb[k[u]] <= len(associations) - 1:
+            if charNumb[m[u]] + charNumb[k[u]] <= len(associations):
                 output += numbChar[charNumb[m[u]] + charNumb[k[u]]]
             else:
-                output += numbChar[(charNumb[m[u]] + charNumb[k[u]]) - (len(associations) - 1)]
+                output += numbChar[(charNumb[m[u]] + charNumb[k[u]]) - (len(associations))]
         print(output)
     
     else:
